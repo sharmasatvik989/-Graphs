@@ -55,14 +55,14 @@ def h():
          values = [row[1] for row in data]
          return render_template("graph.html",labels=labels,values=values, data=data)
          
-        #  elif(part == 'b'):
-        #      select_sql=("select net , count(*) from dbo.quiz2 group by net;")
-        #      cursor.execute(select_sql)
-        #      data = cursor.fetchall()
-        #      labels = [row[0] for row in data]
-        #      values = [row[1] for row in data]
+         elif(part == 'b'):
+             select_sql=("select net , count(*) from dbo.quiz2 group by net;")
+             cursor.execute(select_sql)
+             data = cursor.fetchall()
+             labels = [row[0] for row in data]
+             values = [row[1] for row in data]
              
-        #      return render_template("graph.html",labels = labels, values= values , data= data)
+             return render_template("graph.html",labels = labels, values= values , data= data)
 
 
     else:
@@ -96,38 +96,38 @@ def h1():
          values = [row[1] for row in data]
          return render_template("graph2.html",labels=labels,values=values, data = data)
          
-        #  elif(num == 'b'):
-        #      select_sql=("select net , count(*) from dbo.quiz2 group by net;")
-        #      cursor.execute(select_sql)
-        #      data = cursor.fetchall()
-        #      labels = [row[0] for row in data]
-        #      values = [row[1] for row in data]
+         elif(num == 'b'):
+             select_sql=("select net , count(*) from dbo.quiz2 group by net;")
+             cursor.execute(select_sql)
+             data = cursor.fetchall()
+             labels = [row[0] for row in data]
+             values = [row[1] for row in data]
              
-        #      return render_template("graph2.html",labels = labels, values= values)
-        #  else:
-        #      return render_template("second.html")
+             return render_template("graph2.html",labels = labels, values= values)
+         else:
+             return render_template("second.html")
 
 
     else:
         return render_template("second.html")
 
-    # if request.method=="POST":
-    #     seq = request.form['seq']
-    #     seq1 = request.form['seq1']
-    #     num = request.form['num']
-    #     satvik = request.form['satvik']
-    #     if (num == 'a'):
-    #         select_sql=("select  v.Volcano_Name, v.country ,v.region, v.Latitude, v.Longitude, v.elev from v,vindex where vindex.[Sequence] BETWEEN ? and ? ")
-    #         cursor.execute(select_sql,seq,seq1)
-    #         data = cursor.fetchall()
-    #         return render_template("secondresult.html",result = data)
-    #     elif(num == 'b'):
-    #         select_sql=("select TOP 10 v.Volcano_Name, v.country ,v.region, v.Latitude, v.Longitude, v.elev from v,vindex where vindex.[Sequence] BETWEEN ? and ? ORDER BY RAND()")
-    #         cursor.execute(select_sql,seq,seq1)
-    #         data = cursor.fetchall()
-    #         return render_template("secondresult.html",result = data)
-    #     else:
-    #        return render_template("second.html")
+    if request.method=="POST":
+        seq = request.form['seq']
+        seq1 = request.form['seq1']
+        num = request.form['num']
+        satvik = request.form['satvik']
+        if (num == 'a'):
+            select_sql=("select  v.Volcano_Name, v.country ,v.region, v.Latitude, v.Longitude, v.elev from v,vindex where vindex.[Sequence] BETWEEN ? and ? ")
+            cursor.execute(select_sql,seq,seq1)
+            data = cursor.fetchall()
+            return render_template("secondresult.html",result = data)
+        elif(num == 'b'):
+            select_sql=("select TOP 10 v.Volcano_Name, v.country ,v.region, v.Latitude, v.Longitude, v.elev from v,vindex where vindex.[Sequence] BETWEEN ? and ? ORDER BY RAND()")
+            cursor.execute(select_sql,seq,seq1)
+            data = cursor.fetchall()
+            return render_template("secondresult.html",result = data)
+        else:
+           return render_template("second.html")
     
 
 
@@ -148,92 +148,92 @@ def h2():
          values = [row[1] for row in data]
          return render_template("graph4.html",labels=labels,values=values,data = data)
          
-        #  elif(num == 'b'):
-        #      select_sql=("select net , count(*) from dbo.quiz2 group by net;")
-        #      cursor.execute(select_sql)
-        #      data = cursor.fetchall()
-        #      labels = [row[0] for row in data]
-        #      values = [row[1] for row in data]
+         elif(num == 'b'):
+             select_sql=("select net , count(*) from dbo.quiz2 group by net;")
+             cursor.execute(select_sql)
+             data = cursor.fetchall()
+             labels = [row[0] for row in data]
+             values = [row[1] for row in data]
              
-        #      return render_template("graph3.html",labels = labels, values= values)
-        #  else:
-        #      return render_template("fourth.html")
+             return render_template("graph3.html",labels = labels, values= values)
+         else:
+             return render_template("fourth.html")
 
 
     else:
         return render_template("fourth.html")
-    # if request.method=="POST":
-    #     mag=request.form['mag']
-    #     mag1 = int(mag)
+    if request.method=="POST":
+        mag=request.form['mag']
+        mag1 = int(mag)
         
         
-    #     start = timer()
-    #     for i in range(mag1):
-    #         select_sql=("select  * from v")
-    #         cursor.execute(select_sql)
-    #         data = cursor.fetchall()
+        start = timer()
+        for i in range(mag1):
+            select_sql=("select  * from v")
+            cursor.execute(select_sql)
+            data = cursor.fetchall()
 
 
         
-    #     end = timer()
-    #     val = end -  start
-    #     print(val)
+        end = timer()
+        val = end -  start
+        print(val)
             
-    #     return render_template("fourthresult.html",result = val)
+        return render_template("fourthresult.html",result = val)
         
-    # else:
-    #     return render_template("fourth.html")
+    else:
+        return render_template("fourth.html")
 
-# @app.route("/third", methods=["POST","GET"])
-# def h3():
-#     if request.method=="POST":
+@app.route("/third", methods=["POST","GET"])
+def h3():
+    if request.method=="POST":
          
-#          num = request.form['num']
-#          if(num == 'a'):
-#              select_sql=("select mag, time2 from dbo.quiz2 ;")
-#              cursor.execute(select_sql)
-#              data = cursor.fetchall()
-#              labels = [row[0] for row in data]
-#              values = [row[1] for row in data]
-#              return render_template("graph4.html",labels=labels,values=values,data = data)
+         num = request.form['num']
+         if(num == 'a'):
+             select_sql=("select mag, time2 from dbo.quiz2 ;")
+             cursor.execute(select_sql)
+             data = cursor.fetchall()
+             labels = [row[0] for row in data]
+             values = [row[1] for row in data]
+             return render_template("graph4.html",labels=labels,values=values,data = data)
          
-#          elif(num == 'b'):
-#              select_sql=("select depth,mag  from dbo.quiz2 ;")
-#              cursor.execute(select_sql)
-#              data = cursor.fetchall()
-#              labels = [row[0] for row in data]
-#              values = [row[1] for row in data]
+         elif(num == 'b'):
+             select_sql=("select depth,mag  from dbo.quiz2 ;")
+             cursor.execute(select_sql)
+             data = cursor.fetchall()
+             labels = [row[0] for row in data]
+             values = [row[1] for row in data]
              
-#              return render_template("graph4.html",labels = labels, values= values, data= data)
-#          else:
-#              return render_template("third.html")
+             return render_template("graph4.html",labels = labels, values= values, data= data)
+         else:
+             return render_template("third.html")
 
 
-#     else:
-#         return render_template("third.html")
+    else:
+        return render_template("third.html")
 
-    # if request.method=="POST":
-    #     mag=request.form['mag']
-    #     query1 =int(mag)
-    #     if (query1 == 1):
-    #          iter = int(mag)
-    #          cursor.execute("select * from dbo.v ")
-    #          data = cursor.fetchall()
-    #          r.set('earth',str(data))
+    if request.method=="POST":
+        mag=request.form['mag']
+        query1 =int(mag)
+        if (query1 == 1):
+             iter = int(mag)
+             cursor.execute("select * from dbo.v ")
+             data = cursor.fetchall()
+             r.set('earth',str(data))
 
-    #          start = timer()
-    #          for x in range(0, iter):
-    #                  r.get('earth')
+             start = timer()
+             for x in range(0, iter):
+                     r.get('earth')
              
-    #          out = r.get('earth')
+             out = r.get('earth')
                    
-    #          end = timer()
-    #          val = end -  start
-    #          print(val)
+             end = timer()
+             val = end -  start
+             print(val)
              
-    #          return render_template("thirdresult.html",result = val)
-    # else:
-    #     return render_template("third.html")
+             return render_template("thirdresult.html",result = val)
+    else:
+        return render_template("third.html")
         
 
 
